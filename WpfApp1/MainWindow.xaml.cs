@@ -58,5 +58,22 @@ namespace WpfApp1
                 MessageBox.Show("Nome existente");
             }
         }
+
+        private void OnKey_Down_List(object sender, KeyEventArgs e)
+        {
+            if(lstNames.SelectedItem != null)
+            {
+                if(e.Key == Key.Delete)
+                {
+                    lstNames.Items.Remove(lstNames.SelectedItem);
+                    MessageBox.Show("Excluido");
+                }
+                else if (e.Key == Key.E)
+                {
+                    Microsoft.VisualBasic.Interaction.InputBox("Editar", "Editar", $"{lstNames.SelectedItem}");
+                    lstNames.Items.Remove(lstNames.SelectedItem);
+                }
+            }
+        }
     }
 }
